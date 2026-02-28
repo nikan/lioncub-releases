@@ -1,35 +1,123 @@
-# lioncub-releases
+# Lioncub
 
-Release distribution repository for the Lioncub VS Code extension.
+Lioncub is a VS Code extension for chatting with Mistral models through the native VS Code Chat UI.
 
-## Release Distribution
+## What It Does
 
-This repository exists to host **GitHub Release assets** for Lioncub. Built VSIX packages are published here from the private source repository, [`nikan/lioncub`](https://github.com/nikan/lioncub), using GitHub Actions.
+Lioncub currently supports:
+- native VS Code chat participant registration as `@mistral`
+- secure Mistral API key storage in VS Code `SecretStorage`
+- configurable model, temperature, token limit, and optional system prompt
+- streaming responses in the chat UI
+- connection testing and operational logs through a Lioncub output channel
 
-## Downloads
+## Install
 
-Download the latest extension package from the [Releases page](https://github.com/nikan/lioncub-releases/releases).
+Download the latest `.vsix` package from the [Releases page](https://github.com/nikan/lioncub-releases/releases).
 
-After downloading a `.vsix` asset, install it with:
+Install it with:
 
 ```bash
 code --install-extension lioncub-<version>.vsix
 ```
 
-## Repository Rules
+You can also install the `.vsix` from the VS Code Extensions view if you prefer a UI flow.
 
-- Do not commit VSIX files or other binaries into git history.
-- Publish extension packages as GitHub Release assets only.
-- Keep source code changes in the private `lioncub` repository.
-- Include a link back to the source commit in each release body.
+## Setup
 
-## Release Flow
+1. Install the extension.
+2. Run `Lioncub: Set API Key`.
+3. Run `Lioncub: Test Connection`.
+4. Open the VS Code Chat view and select `@mistral`.
 
-1. A release workflow runs in the private `lioncub` source repository.
-2. The workflow builds and packages the extension into a VSIX file.
-3. The workflow creates or updates a matching release in `lioncub-releases`.
-4. The workflow uploads the VSIX as a release asset here.
+## First Chat
 
-## Notes
+1. Run `Lioncub: Set API Key`.
+2. Run `Lioncub: Test Connection`.
+3. Open chat and address `@mistral`.
+4. Submit a prompt.
+5. If something fails, run `Lioncub: Show Logs` and inspect the `Lioncub` output channel.
 
-This repository is intentionally lightweight. It is for distribution, not development.
+## Available Commands
+
+- `Lioncub: Set API Key`
+- `Lioncub: Clear API Key`
+- `Lioncub: Test Connection`
+- `Lioncub: Show Status`
+- `Lioncub: Show Logs`
+
+## Settings
+
+Lioncub contributes these settings:
+
+- `lioncub.defaultModel`
+  Default Mistral model used for chat requests.
+- `lioncub.availableModels`
+  Allowlist of model IDs the extension accepts.
+- `lioncub.temperature`
+  Sampling temperature from `0` to `2`.
+- `lioncub.maxTokens`
+  Maximum requested response tokens.
+- `lioncub.systemPrompt`
+  Optional base system instruction.
+- `lioncub.logLevel`
+  One of `debug`, `info`, `warn`, `error`.
+
+## Troubleshooting
+
+### Missing or Invalid API Key
+
+Symptoms:
+- `Test Connection` fails
+- chat shows an authentication error
+
+Remedy:
+- run `Lioncub: Set API Key`
+- rerun `Lioncub: Test Connection`
+- open `Lioncub: Show Logs` if the failure persists
+
+### Invalid or Unavailable Model
+
+Symptoms:
+- chat fails before or during completion
+- connection or request errors mention model availability
+
+Remedy:
+- check `lioncub.defaultModel`
+- confirm the model exists in `lioncub.availableModels`
+- keep `lioncub.defaultModel` inside the allowlist
+
+### Network Failure
+
+Symptoms:
+- chat cannot reach Mistral
+- connection test fails intermittently
+
+Remedy:
+- verify network connectivity from VS Code
+- retry the request
+- inspect `Lioncub: Show Logs` for the request lifecycle and error code
+
+### Invalid Configuration
+
+Symptoms:
+- status or chat requests fail immediately
+- errors mention Lioncub configuration
+
+Remedy:
+- open VS Code settings for `Lioncub`
+- correct `defaultModel`, `availableModels`, `temperature`, `maxTokens`, or `logLevel`
+
+## Logs
+
+Lioncub writes operational logs to the `Lioncub` output channel.
+
+The logs include:
+- request start and completion
+- model and session correlation
+- durations and error codes
+
+The logs intentionally do not include:
+- API keys
+- auth headers
+- full prompt bodies
