@@ -1,0 +1,25 @@
+# VS Code extension packages
+*.vsix
+
+# Common binaries and archives
+*.exe
+*.dll
+*.so
+*.dylib
+*.app
+*.bin
+*.out
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+
+# Build outputs
+build/
+dist/
+out/
+coverage/
+
+# OS files
+.DS_Store
