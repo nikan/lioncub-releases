@@ -1,0 +1,49 @@
+<svg width="1280" height="640" viewBox="0 0 1280 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="640" rx="40" fill="#FFF8EE"/>
+  <circle cx="1035" cy="124" r="124" fill="#F6D7A1" fill-opacity="0.45"/>
+  <circle cx="1128" cy="240" r="74" fill="#F0A63A" fill-opacity="0.18"/>
+  <circle cx="190" cy="510" r="96" fill="#1F2329" fill-opacity="0.06"/>
+  <path d="M0 502C149 439 260 425 414 448C561 470 648 551 817 555C962 559 1126 497 1280 424V640H0V502Z" fill="#1F2329"/>
+  <path d="M0 529C134 465 274 455 420 478C579 503 691 592 856 594C1001 596 1144 537 1280 473V640H0V529Z" fill="#2C3138"/>
+  <circle cx="180" cy="178" r="92" fill="#1CB59A"/>
+  <circle cx="153" cy="148" r="20" fill="#A85C2A"/>
+  <circle cx="207" cy="148" r="20" fill="#A85C2A"/>
+  <circle cx="153" cy="148" r="11" fill="#F8D8AF"/>
+  <circle cx="207" cy="148" r="11" fill="#F8D8AF"/>
+  <circle cx="180" cy="176" r="50" fill="#A85C2A"/>
+  <path d="M146 178C146 158 161 142 180 142C199 142 214 158 214 178V187C214 206 199 221 180 221C161 221 146 206 146 187V178Z" fill="#F8D8AF"/>
+  <circle cx="164" cy="176" r="6" fill="#1F2329"/>
+  <circle cx="196" cy="176" r="6" fill="#1F2329"/>
+  <ellipse cx="180" cy="194" rx="15" ry="11" fill="#FFF2DD"/>
+  <path d="M180 187L188 196H172L180 187Z" fill="#1F2329"/>
+  <path d="M171 202C174 206 177 208 180 208C183 208 186 206 189 202" stroke="#1F2329" stroke-width="5" stroke-linecap="round"/>
+  <text
+    x="312"
+    y="184"
+    fill="#1F2329"
+    font-family="Segoe UI, Arial, sans-serif"
+    font-size="92"
+    font-weight="800"
+    letter-spacing="-3"
+  >
+    Lioncub
+  </text>
+  <text x="88" y="326" fill="#1F2329" font-family="Segoe UI, Arial, sans-serif" font-size="48" font-weight="700" letter-spacing="-1.2">
+    Native Mistral chat for VS Code
+  </text>
+  <text x="88" y="378" fill="#4E5661" font-family="Segoe UI, Arial, sans-serif" font-size="26">
+    Secure API key storage, streamed replies, and a clean MVP transport path.
+  </text>
+  <rect x="88" y="426" width="292" height="54" rx="14" fill="#F0A63A"/>
+  <text x="109" y="460" fill="#1F2329" font-family="Segoe UI, Arial, sans-serif" font-size="21" font-weight="700">
+    @mistral participant
+  </text>
+  <rect x="402" y="426" width="228" height="54" rx="14" stroke="#D8B576" stroke-width="2"/>
+  <text x="434" y="460" fill="#1F2329" font-family="Segoe UI, Arial, sans-serif" font-size="21" font-weight="700">
+    SecretStorage
+  </text>
+  <rect x="652" y="426" width="190" height="54" rx="14" stroke="#D8B576" stroke-width="2"/>
+  <text x="686" y="460" fill="#1F2329" font-family="Segoe UI, Arial, sans-serif" font-size="21" font-weight="700">
+    Streaming
+  </text>
+</svg>

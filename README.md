@@ -1,15 +1,18 @@
 # Lioncub
 
-Lioncub is a VS Code extension for chatting with Mistral models through the native VS Code Chat UI.
+<p align="center">
+  <img src="./assets/brand/README-hero.svg" alt="Lioncub hero banner" width="920" />
+</p>
 
-## What It Does
+<p align="center">
+  Native Mistral chat for VS Code with secure key handling, streamed responses, and a clean MVP transport path.
+</p>
 
-Lioncub currently supports:
-- native VS Code chat participant registration as `@mistral`
-- secure Mistral API key storage in VS Code `SecretStorage`
-- configurable model, temperature, token limit, and optional system prompt
-- streaming responses in the chat UI
-- connection testing and operational logs through a Lioncub output channel
+## What This Repository Is
+
+`lioncub-releases` is the distribution repository for Lioncub VS Code extension packages.
+
+This repository exists to host GitHub Releases and attached `.vsix` assets. The extension source code lives in the separate `nikan/lioncub` repository.
 
 ## Install
 
@@ -23,101 +26,30 @@ code --install-extension lioncub-<version>.vsix
 
 You can also install the `.vsix` from the VS Code Extensions view if you prefer a UI flow.
 
-## Setup
+## What Gets Published Here
 
-1. Install the extension.
-2. Run `Lioncub: Set API Key`.
-3. Run `Lioncub: Test Connection`.
-4. Open the VS Code Chat view and select `@mistral`.
+- GitHub Releases for Lioncub versions
+- versioned `.vsix` assets such as `lioncub-<version>.vsix`
+- lightweight release-facing documentation
 
-## First Chat
+## What Does Not Belong Here
 
-1. Run `Lioncub: Set API Key`.
-2. Run `Lioncub: Test Connection`.
-3. Open chat and address `@mistral`.
-4. Submit a prompt.
-5. If something fails, run `Lioncub: Show Logs` and inspect the `Lioncub` output channel.
+- source code copied from `nikan/lioncub`
+- committed `.vsix` files in git history
+- build output directories
+- local development sources such as `src/`, `test/`, or `node_modules/`
 
-## Available Commands
+## Source of Truth
 
-- `Lioncub: Set API Key`
-- `Lioncub: Clear API Key`
-- `Lioncub: Test Connection`
-- `Lioncub: Show Status`
-- `Lioncub: Show Logs`
+The private source repository is `nikan/lioncub`.
 
-## Settings
+Release builds are created there and published here through GitHub Actions using `RELEASE_TOKEN`. This repository is the distribution target, not the build source.
 
-Lioncub contributes these settings:
+## Release Notes Expectations
 
-- `lioncub.defaultModel`
-  Default Mistral model used for chat requests.
-- `lioncub.availableModels`
-  Allowlist of model IDs the extension accepts.
-- `lioncub.temperature`
-  Sampling temperature from `0` to `2`.
-- `lioncub.maxTokens`
-  Maximum requested response tokens.
-- `lioncub.systemPrompt`
-  Optional base system instruction.
-- `lioncub.logLevel`
-  One of `debug`, `info`, `warn`, `error`.
+Lioncub releases in this repository should include:
 
-## Troubleshooting
-
-### Missing or Invalid API Key
-
-Symptoms:
-- `Test Connection` fails
-- chat shows an authentication error
-
-Remedy:
-- run `Lioncub: Set API Key`
-- rerun `Lioncub: Test Connection`
-- open `Lioncub: Show Logs` if the failure persists
-
-### Invalid or Unavailable Model
-
-Symptoms:
-- chat fails before or during completion
-- connection or request errors mention model availability
-
-Remedy:
-- check `lioncub.defaultModel`
-- confirm the model exists in `lioncub.availableModels`
-- keep `lioncub.defaultModel` inside the allowlist
-
-### Network Failure
-
-Symptoms:
-- chat cannot reach Mistral
-- connection test fails intermittently
-
-Remedy:
-- verify network connectivity from VS Code
-- retry the request
-- inspect `Lioncub: Show Logs` for the request lifecycle and error code
-
-### Invalid Configuration
-
-Symptoms:
-- status or chat requests fail immediately
-- errors mention Lioncub configuration
-
-Remedy:
-- open VS Code settings for `Lioncub`
-- correct `defaultModel`, `availableModels`, `temperature`, `maxTokens`, or `logLevel`
-
-## Logs
-
-Lioncub writes operational logs to the `Lioncub` output channel.
-
-The logs include:
-- request start and completion
-- model and session correlation
-- durations and error codes
-
-The logs intentionally do not include:
-- API keys
-- auth headers
-- full prompt bodies
+- the version tag
+- the packaged `.vsix` asset
+- a link back to the source commit in `nikan/lioncub`
+- an install snippet using `code --install-extension`
